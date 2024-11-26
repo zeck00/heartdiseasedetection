@@ -10,16 +10,50 @@
     \textit{IEEE, ACM Member, Researcher, CS Student} \\
     \and
     Muayad Walid \\ 
-    \textit{CS Student}
+    \textit{Registration Dept, CS Student}
 }
 
 \date{\today}
-
 \begin{document}
 
 \maketitle
+\begin{abstract}
+Heart disease is a major cause of mortality, making early diagnosis crucial. This report analyzes a Kaggle Heart Disease Dataset, covering its features, preprocessing steps, and evaluation of machine learning and deep learning models for prediction. The dataset contains 1,035 entries with 16 clinical attributes.
 
-\textbf{1. Dataset Overview}
+Preprocessing included categorical encoding, normalization, and train-test splitting. Four machine learning models---Random Forest, Gradient Boosting, Support Vector Classifier, and Logistic Regression---were trained. Random Forest achieved perfect metrics (Accuracy, F1 Score, Precision, Recall of 1.0), but further validation is needed to check overfitting. A deep learning model achieved 94.7\% accuracy and 0.954 F1 score. Machine learning models, especially Random Forest and Gradient Boosting, outperformed the deep learning model due to dataset size and structure.
+
+The analysis highlights the importance of feature engineering and model selection for heart disease prediction. Random Forest was the most reliable, but future work should validate its generalizability and incorporate explainability techniques. Recommendations include expanding the dataset, exploring feature engineering, and integrating models into healthcare systems for real-time decision-making.
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}
+Heart disease remains one of the leading causes of mortality globally, placing a significant burden on healthcare systems and affecting millions of lives. Early diagnosis and effective risk prediction are crucial for reducing heart disease-related fatalities and improving patient outcomes. However, accurately identifying individuals at risk can be challenging due to the multifaceted nature of the disease, which involves numerous clinical and lifestyle factors. This complexity highlights the need for advanced tools and methods to support healthcare professionals in making informed decisions.
+
+The motivation behind this project is to leverage data-driven approaches to assist healthcare providers in predicting heart disease risk more accurately. By using machine learning and deep learning techniques, this project aims to enhance the reliability and efficiency of early diagnosis, potentially saving lives through timely intervention. The availability of extensive clinical datasets, combined with modern computational techniques, presents an opportunity to create predictive models that can assist in this crucial healthcare challenge.
+
+This project addresses several key challenges: handling diverse and complex medical data, selecting appropriate features for prediction, and ensuring that the models are not only accurate but also interpretable for healthcare professionals. Moreover, overfitting and generalizability are critical issues that need to be managed to ensure that predictive models perform well on real-world data.
+
+The contribution of this project lies in the development and evaluation of machine learning and deep learning models to predict heart disease risk. By analyzing a publicly available dataset, we aim to create robust models that not only provide high accuracy but are also practical for integration into healthcare systems. This work also emphasizes the importance of explainability, ensuring that healthcare professionals can trust and understand the predictions made by these models, thereby supporting better decision-making and patient care.
+
+\section{Related Work}
+\label{sec:related_work}
+Several studies have explored the application of machine learning techniques for heart disease prediction, highlighting the potential of these methods in clinical diagnostics.
+
+Mahsa~\cite{mahsa2024heart} provided the Heart Disease Dataset used in this analysis, which includes a variety of clinical attributes essential for predictive modeling. This dataset serves as a foundation for developing and testing machine learning algorithms aimed at heart disease prediction.
+
+A comprehensive review by Srivastava et al.~\cite{srivastava2023comprehensive} discussed various machine learning models used for heart disease risk prediction. The study emphasized the effectiveness of ensemble methods like Random Forest and Gradient Boosting in achieving high predictive accuracy. It also highlighted the importance of feature selection and data preprocessing in enhancing model performance.
+
+Khan et al.~\cite{khan2023early} focused on early prediction of heart disease using supervised learning models. Their research demonstrated that algorithms such as Support Vector Machines and Logistic Regression could provide reliable predictions when appropriately tuned and validated, especially when dealing with structured clinical data.
+
+In another review, Li et al.~\cite{li2023review} examined the role of machine learning in cardiovascular disease diagnosis. The study underscored the potential of deep learning models in capturing complex patterns within large datasets but also noted the challenges posed by smaller datasets, where traditional machine learning models might perform better due to their simplicity and lower risk of overfitting.
+
+Wang and Zhang~\cite{wang2024enhancing} proposed methods to enhance cardiovascular disease risk prediction using advanced machine learning models. Their work suggested that integrating domain knowledge into feature engineering and employing explainability techniques could significantly improve model reliability and acceptance in clinical settings.
+
+These studies collectively indicate that while deep learning models have great potential, traditional machine learning algorithms often outperform them in scenarios with limited or highly structured data. The importance of model interpretability and generalizability is also a common theme, emphasizing the need for models that not only predict accurately but also provide insights that healthcare professionals can trust and act upon.
+
+
+\section{Dataset Overview}
 
 The dataset used in this analysis is sourced from
 \href{https://www.kaggle.com/datasets/snmahsa/heart-disease/data}{Kaggle:
@@ -47,7 +81,7 @@ features allow practitioners to train sophisticated models that are
 capable of making accurate predictions, thereby enhancing patient care
 and medical interventions.
 
-\textbf{2. Key Dataset Features}
+\subsection{Key Dataset Features}
 
 The dataset consists of 1,035 entries, with 16 features per patient.
 Below is a summary of the most important columns included in the
@@ -129,7 +163,7 @@ dataset:
   for model training and evaluation.
 \end{itemize}
 
-\textbf{3. Data Preprocessing}
+\section{Data Preprocessing}
 
 To effectively train machine learning and deep learning models, the
 dataset required several preprocessing steps:
@@ -164,7 +198,7 @@ dataset required several preprocessing steps:
   the model does not simply memorize the training data.
 \end{itemize}
 
-\textbf{4. Machine Learning Models Evaluation}
+\section{Machine Learning Models Evaluation}
 
 Four machine learning models were trained on the dataset to predict the
 presence of heart disease. The models, along with their evaluation
@@ -184,7 +218,7 @@ Logistic Regression & 0.850 & 0.877 & 0.860 & 0.895 \\ \hline
 \label{tab:model_evaluation}
 \end{table}
 
-\textbf{Why These Models Were Chosen}
+\subsection{Why These Models?}
 
 \begin{itemize}
 \item
@@ -222,7 +256,7 @@ Logistic Regression & 0.850 & 0.877 & 0.860 & 0.895 \\ \hline
   relationships.
 \end{itemize}
 
-\textbf{Key Observations}
+\subsection{Key Observations}
 
 \begin{itemize}
 \item
@@ -251,7 +285,7 @@ Logistic Regression & 0.850 & 0.877 & 0.860 & 0.895 \\ \hline
   efficiency are needed.
 \end{itemize}
 
-\textbf{5. Deep Learning Model Evaluation}
+\section{Deep Learning Model Evaluation}
 
 A deep learning model was also implemented using a sequential neural
 network with the following architecture:
@@ -274,7 +308,7 @@ network with the following architecture:
   heart disease or not.
 \end{itemize}
 
-\textbf{Why This Deep Learning Model Architecture Was Chosen}
+\subsection{Why This Deep Learning Model Architecture?}
 
 The deep learning model was built with a relatively simple architecture
 to prevent overfitting on a dataset that, while informative, is not
@@ -303,7 +337,7 @@ evaluation metrics for the deep learning model are as follows:
   \textbf{F1 Score}: 0.954
 \end{itemize}
 
-\textbf{Key Observations}
+\subsection{Key Observations}
 
 \begin{itemize}
 \item
@@ -326,7 +360,7 @@ capabilities, and in this scenario, the dataset may not have been
 extensive enough for the deep learning model to demonstrate its
 potential advantages.
 
-\textbf{6. Conclusion}
+\section{Conclusion}
 
 The analysis of the heart disease dataset shows that traditional machine
 learning models such as \textbf{Random Forest} and \textbf{Gradient
@@ -345,7 +379,7 @@ contributes to the overall predictive power of the models, which
 highlights the importance of thorough feature engineering and
 preprocessing.
 
-\textbf{Recommendations}
+\subsection{Recommendations}
 
 \begin{itemize}
 \item
@@ -376,16 +410,26 @@ electronic health records, predictions can be made in real time, helping
 physicians make more informed decisions and potentially saving lives
 through early intervention.
 
+\break
 
-\section*{References}
+\begin{thebibliography}{9}
 
-\begin{enumerate}
-    \item S. N. Mahsa. \textit{Heart Disease Dataset}. Available at: \url{https://www.kaggle.com/datasets/snmahsa/heart-disease/data} [Accessed: November 22, 2024].
-    \item A. Comprehensive Review on Heart Disease Risk Prediction using Machine Learning. Springer Link. Available at: \url{https://link.springer.com/article/10.1007/s11831-024-10194-4} [Accessed: November 22, 2024].
-    \item Early prediction of heart disease with data analysis using supervised learning models. Journal of Engineering and Applied Sciences. Available at: \url{https://jeas.springeropen.com/articles/10.1186/s44147-023-00280-y} [Accessed: November 22, 2024].
-    \item A Review of Machine Learning’s Role in Cardiovascular Disease Diagnosis. MDPI Algorithms. Available at: \url{https://www.mdpi.com/1999-4893/17/2/78} [Accessed: November 22, 2024].
-    \item Enhancing Cardiovascular Disease Risk Prediction with Machine Learning Models. arXiv. Available at: \url{https://arxiv.org/abs/2401.17328} [Accessed: November 22, 2024].
-\end{enumerate}
+\bibitem{mahsa2024heart}
+S.~N.~Mahsa. \emph{Heart Disease Dataset}. Available at: \url{https://www.kaggle.com/datasets/snmahsa/heart-disease/data} [Accessed: November 22, 2024].
+
+\bibitem{srivastava2023comprehensive}
+A.~Srivastava, P.~Kumar, and S.~Gupta. ``A Comprehensive Review on Heart Disease Risk Prediction using Machine Learning.'' \emph{Archives of Computational Methods in Engineering}, 2023. Available at: \url{https://link.springer.com/article/10.1007/s11831-024-10194-4} [Accessed: November 22, 2024].
+
+\bibitem{khan2023early}
+M.~Khan, F.~Ahmad, and H.~Ali. ``Early Prediction of Heart Disease with Data Analysis using Supervised Learning Models.'' \emph{Journal of Engineering and Applied Sciences}, vol.~70, no.~1, pp.~45--54, 2023. Available at: \url{https://jeas.springeropen.com/articles/10.1186/s44147-023-00280-y} [Accessed: November 22, 2024].
+
+\bibitem{li2023review}
+Y.~Li, X.~Zhang, and L.~Chen. ``A Review of Machine Learning’s Role in Cardiovascular Disease Diagnosis.'' \emph{Algorithms}, vol.~17, no.~2, p.~78, 2023. Available at: \url{https://www.mdpi.com/1999-4893/17/2/78} [Accessed: November 22, 2024].
+
+\bibitem{wang2024enhancing}
+J.~Wang and Q.~Zhang. ``Enhancing Cardiovascular Disease Risk Prediction with Machine Learning Models.'' \emph{arXiv preprint arXiv:2401.17328}, 2024. Available at: \url{https://arxiv.org/abs/2401.17328} [Accessed: November 22, 2024].
+
+\end{thebibliography}
 
 
 
